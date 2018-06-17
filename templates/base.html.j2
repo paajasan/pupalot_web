@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    {% block head %}
+      <title>
+        {% block title %}
+          Pupalot official website
+        {% endblock %}
+      </title>
+      <link rel="stylesheet" href="/static/style.css"/>
+    {% endblock %}
+  </head>
+
+  <body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+        &copy; Copyright 2018 by
+        <a href="https://github.com/paajasan">paajasan</a>.
+      {% endblock %}
+    </div>
+  </body>
+
+</html>
