@@ -1,4 +1,40 @@
 body {
-    background: red;
-    color: yellow;
+  background: linear-gradient(-25deg, powderblue, rgba(256, 256, 256, 1), rgba(0, 50, 256, 0.3));
+  height: 100vh;
+  text-align: center;
+}
+
+#p01 {
+	font-size: 150%;
+}
+
+#p02 {
+	margin-top: 100px;
+}
+
+footer {
+	font-size: 75%;
+	background-color: black;
+	color: white;
+	text-align: left;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+#footerText {
+  padding-left: 40px
+}
+
+
+a#git{
+  color: white;
+  text-decoration: none;
+}
+
+iframe#i1 {
+	border: none;
+	margin-bottom: 100px;
 }
