@@ -1,6 +1,7 @@
 body {
   background: linear-gradient(-25deg, powderblue, rgba(256, 256, 256, 1), rgba(0, 50, 256, 0.3));
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   text-align: center;
 }
 
@@ -10,6 +11,7 @@ body {
 
 #p02 {
 	margin-top: 100px;
+	margin-bottom: 100px;
 }
 
 footer {
@@ -34,7 +36,27 @@ a#git{
   text-decoration: none;
 }
 
-iframe#i1 {
-	border: none;
-	margin-bottom: 100px;
+div.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px
+}
+
+div.lorem {
+  /*display: flex;*/
+  max-width: 1000px;
+  font-size: 110%;
+}
+
+div.lorem p {
+  padding: 10px;
+  text-align: justify;
+}
+
+div.loremus p {
+  margin 0 auto;
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
 }
