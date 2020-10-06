@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 
 app = Flask(__name__)
 
@@ -10,13 +10,10 @@ def index():
 
 
 @app.route('/hass')
-def hello():
-    return redirect("https://pupalot.ddns.net:8123", code=301)
-
-
 @app.route('/homeassistant')
-def hello():
+def hass():
     return redirect("https://pupalot.ddns.net:8123", code=301)
+
 
 
 if __name__ == '__main__':
