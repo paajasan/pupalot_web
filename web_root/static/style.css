@@ -55,7 +55,7 @@ div.lorem p {
 }
 
 div.loremus p {
-  margin 0 auto;
+  margin: auto;
   position: absolute;
   left: 50%;
   margin-right: -50%;
