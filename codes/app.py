@@ -12,7 +12,17 @@ def index():
 @app.route('/hass')
 @app.route('/homeassistant')
 def hass():
-    return redirect("https://pupalot.ddns.net:8123", code=301)
+    return redirect("https://www.pupalot.fi:8123", code=301)
+
+
+@app.route('/router')
+def router():
+    return redirect("https://paakinnu.asuscomm.com:8443", code=301)
+
+
+@app.route('/pi-hole')
+def pi_hole():
+    return redirect("http://192.168.2.126:8444/admin/", code=301)
 
 
 
