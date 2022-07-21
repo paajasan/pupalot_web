@@ -17,11 +17,13 @@ restart_apache=false
 for f in pipalot_web.conf pipalot_web-le-ssl.conf; do
     # Check for change
     if ! diff /etc/apache2/sites-enabled/$f codes/$f  &>/dev/null; then
+        echo Copying codes/$f to /etc/apache2/sites-available/ 
         # If changed, copy to sites-available
         cp codes/$f /etc/apache2/sites-available/
         # Remake link to sites-enabled if nonexistent
         if ! [[ -f /etc/apache2/sites-enabled/$f ]]; then
-           ln -sf /etc/apache2/sites-available/$f /etc/apache2/sites-enabled/
+            echo Making a link of /etc/apache2/sites-available/$f to /etc/apache2/sites-enabled/ 
+            ln -sf /etc/apache2/sites-available/$f /etc/apache2/sites-enabled/
         fi
         restart_apache=false
     fi
@@ -29,5 +31,6 @@ done
 
 # If either conf file was copied, restart the server
 if $restart_apache; then
+    echo Restarting apache
     systemctl restart apache2.service
 fi
