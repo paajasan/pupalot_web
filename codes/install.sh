@@ -20,7 +20,7 @@ for f in pipalot_web.conf pipalot_web-le-ssl.conf; do
         # If changed, copy to sites-available
         sudo cp codes/$f /etc/apache/sites-available/
         # Remake link to sites-enabled if nonexistent
-        if ! [[ -f /etc/apache/sites-enabled/$f]] ; then
+        if ! [[ -f /etc/apache/sites-enabled/$f]]; then
            sudo ln -sf /etc/apache/sites-available/$f /etc/apache/sites-enabled/
         fi
         restart_apache=false
@@ -28,6 +28,6 @@ for f in pipalot_web.conf pipalot_web-le-ssl.conf; do
 done
 
 # If either conf file was copied, restart the server
-if $restart_apache ; then
+if $restart_apache; then
     sudo systemctl --restart apache2.service
 fi
