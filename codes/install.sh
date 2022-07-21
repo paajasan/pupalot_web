@@ -25,7 +25,7 @@ for f in pipalot_web.conf pipalot_web-le-ssl.conf; do
             echo Making a link of /etc/apache2/sites-available/$f to /etc/apache2/sites-enabled/ 
             ln -sf /etc/apache2/sites-available/$f /etc/apache2/sites-enabled/
         fi
-        restart_apache=false
+        restart_apache=true
     fi
 done
 
