@@ -8,20 +8,20 @@ cd /home/pipalot/webapp
 git pull
 
 # sync to web root and make sure owner is www-data
-sudo rsync -ravP --del web_root/ /var/www/pipalot_web/
-sudo chown www-data:www-data -R /var/www/pipalot_web/
+rsync -ravP --del web_root/ /var/www/pipalot_web/
+chown www-data:www-data -R /var/www/pipalot_web/
 
 # "boolean" to check if we need to restart apache
 restart_apache=false
 # check both conf files
 for f in pipalot_web.conf pipalot_web-le-ssl.conf; do
     # Check for change
-    if ! diff /etc/apache/sites-enabled/$f codes/$f  &>/dev/null; then
+    if ! diff /etc/apache2/sites-enabled/$f codes/$f  &>/dev/null; then
         # If changed, copy to sites-available
-        sudo cp codes/$f /etc/apache/sites-available/
+        cp codes/$f /etc/apache2/sites-available/
         # Remake link to sites-enabled if nonexistent
-        if ! [[ -f /etc/apache/sites-enabled/$f ]]; then
-           sudo ln -sf /etc/apache/sites-available/$f /etc/apache/sites-enabled/
+        if ! [[ -f /etc/apache2/sites-enabled/$f ]]; then
+           ln -sf /etc/apache2/sites-available/$f /etc/apache2/sites-enabled/
         fi
         restart_apache=false
     fi
@@ -29,5 +29,5 @@ done
 
 # If either conf file was copied, restart the server
 if $restart_apache; then
-    sudo systemctl --restart apache2.service
+    systemctl restart apache2.service
 fi
